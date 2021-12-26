@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
 import logo from '../../assets/img/logo.svg'
 import { Container, Content, Form } from './styles'
 
@@ -23,9 +24,21 @@ export function SignIn () {
 
   return (
     <Container changeArea={hasChange}>
+            <motion.div
+              style={{
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+
+              }}
+              animate={{ y: [100, 0] }}
+              transition={{ ease: 'easeOut', duration: 1 }}
+            >
         <Content>
             <img src={logo} alt="logo do projeto"/>
             <span> Seja  bem vindo ao estudo de redesign da interface do Banco Inter</span>
+
             <Form disabled={isDisabled}>
             <input
              type="text"
@@ -36,9 +49,10 @@ export function SignIn () {
              <button
               type="button"
               disabled={isDisabled}
-             > Entrar no App</button>
+              > Entrar no App</button>
              </Form>
         </Content>
+            </motion.div>
 
     </Container>
   )
