@@ -53,6 +53,7 @@ export const Content = styled.div`
 
 interface ButtonProps {
   disabled: boolean
+  changeArea?: boolean
 }
 
 export const Form = styled.form<ButtonProps>`
@@ -62,6 +63,12 @@ export const Form = styled.form<ButtonProps>`
  align-items:center;
  justify-content:center;
  margin: 8px 0;
+
+ ${(props) => props.changeArea && css`
+  background-color: ${({ theme }) => theme.colors.secondary};
+
+ `}
+
 
  input {
    width:100%;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 import logo from '../../assets/img/logo.svg'
 import { Container, LeftContent, RightContent, Content } from './styles'
 
@@ -15,15 +16,29 @@ export function Header () {
   return (
     <Container>
       <Content>
+        <motion.div
+        animate={{ x: 30 }}
+        transition={{ type: 'spring', stiffness: 50 }}
+        >
+
         <LeftContent>
           <img src={logo} alt="inter"/>
           <span> Internet Banking </span>
         </LeftContent>
+        </motion.div>
         <RightContent>
-          <button className="simulador"> Simulador de Render Fixa</button>
+          <motion.div
+          animate={{ opacity: 0.6 }}
+          transition={{ type: 'spring', stiffness: 50 }}>
+              <button className="simulador"> Simulador de Renda Fixa</button>
+          </motion.div>
+          <motion.div
+          animate={{ x: -10 }}
+          transition={{ type: 'spring', stiffness: 100 }}>
           <button className="name">
             <span> {initial}</span>
          </button>
+         </motion.div>
         </RightContent>
       </Content>
     </Container>

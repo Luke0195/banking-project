@@ -11,6 +11,7 @@ export function SignIn () {
   const navigate = useNavigate()
   const [text, setText] = useState('')
   const [hasChange, setHasChange] = useState(false)
+  const [sucessedForm, setSucessedForm] = useState(false)
   const [isDisabled, setIsDisabled] = useState(true)
   const [isConfirmed, setIsConfirmed] = useState(false)
   const { handleSaveData } = useContext(UserContext)
@@ -28,6 +29,7 @@ export function SignIn () {
     handleValidateName(text)
     handleSaveData(text)
     setIsConfirmed(true)
+    setSucessedForm(true)
     setTimeout(() => {
       navigate('dashboard')
     }, 1000)
@@ -92,7 +94,7 @@ var wkEnd = new Date(new Date(wkStart).setDate(wkStart.getDate() + 6));
           <img src={logo} alt="logo do projeto"/>
           <span> Seja  bem vindo ao estudo de redesign da interface do Banco Inter</span>
 
-          <Form disabled={isDisabled}>
+          <Form disabled={isDisabled} changeArea={sucessedForm}>
           <input
            type="text"
            value={text}
