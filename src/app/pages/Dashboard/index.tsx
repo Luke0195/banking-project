@@ -1,7 +1,7 @@
 import React from 'react'
-import { Header } from '../../components/Header'
+import { Layout } from '../../components'
 export function Dashboard () {
   return (
-    <Header/>
+    <Layout/>
   )
 }
